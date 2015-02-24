@@ -1,0 +1,34 @@
+2.3 (not released yet):
+  * Open sourced plugin
+  * Added /BBInfo
+  * Added bb.info permission node
+  * Magic formating code shows magic
+  * New package (again) pe.nn.connor.betterbroadcast
+  * More to come
+2.2.1:
+  * /BBReload hotfix
+2.2:
+  * Added /bbreload command (Completes ticket 1)
+2.1:
+  * Slightly optimized code
+  * Made the [BB] tag configurable
+  * Changed package from me.reddy360.bb to pe.nn.connor.plugins.bb
+  * Added connor.nn.pe/plugins/bb to website in plugin.yml
+2.0:
+  * Recoded EVERYTHING
+  * Removed every command apart from /BB and /BBToggle.
+  * Added /BBColours - Shows the Minecraft Colour Codes!
+  * Allowed use of Colour Codes in the /BB command!
+  * Changed /BBToggle to be per player instead of per server.
+  * Added working permissions! (/BB - bb.broadcast, /BBToggle - bb.toggle and /BBColours - bb.colours)
+  * Added Colour to the [BB] tag.
+2.1:
+  * Changed all permission nodes to lower case
+  * Added BBCrossed
+  * Added BBUnderlined
+  * Added BBBold
+  * Made BBToggle more understandable
+  * Tested against 1.3 (Works :D)
+  * Added new code for BBBold soon to take over my old method
+1.0:
+  * First build
