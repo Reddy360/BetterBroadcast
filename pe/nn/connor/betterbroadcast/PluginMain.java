@@ -62,6 +62,7 @@ public class PluginMain extends JavaPlugin{
         pm.addPermission(new Permission("bb.colours", PermissionDefault.OP));
         pm.addPermission(new Permission("bb.toggle", PermissionDefault.OP));
         pm.addPermission(new Permission("bb.reload", PermissionDefault.OP));
+        pm.addPermission(new Permission("bb.info", PermissionDefault.TRUE));
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]){
@@ -120,14 +121,18 @@ public class PluginMain extends JavaPlugin{
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbinfo")){
-            PluginDescriptionFile pdf = this.getDescription();
-            sender.sendMessage("Version: " + pdf.getVersion());
-            sender.sendMessage("Created by " + ChatColor.PURPLE + "Reddy360");
-            sender.sendMessage("Bukkit: http://dev.bukkit.org/bukkit-plugins/better-broadcast/");
-            sender.sendMessage("GitHub: https://github.com/Reddy360/BetterBroadcast Fork me");
-            sender.sendMessage("Plugin binary compiled on DD/MM/YY HH:MM"); //Not really compiled yet, will be populated for releases
-            sender.sendMessage("Thanks for using my plugin :)");
-            //Feel free to add your fork info if you've forked this
+            if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.info"))){
+                PluginDescriptionFile pdf = this.getDescription();
+                sender.sendMessage("Version: " + pdf.getVersion());
+                sender.sendMessage("Created by " + ChatColor.PURPLE + "Reddy360");
+                sender.sendMessage("Bukkit: http://dev.bukkit.org/bukkit-plugins/better-broadcast/");
+                sender.sendMessage("GitHub: https://github.com/Reddy360/BetterBroadcast Fork me");
+                sender.sendMessage("Plugin binary compiled on DD/MM/YY HH:MM"); //Not really compiled yet, will be populated for releases
+                sender.sendMessage("Thanks for using my plugin :)");
+                //Feel free to add your fork info if you've forked this
+            }else{
+                sender.sendMessage(ChatColor.RED + "You do not have permission!"; //I really don't know why you would
+            }
             return true;
         }else{
             return false;
