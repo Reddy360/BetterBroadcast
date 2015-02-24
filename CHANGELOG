@@ -22,7 +22,7 @@
   * Changed /BBToggle to be per player instead of per server.
   * Added working permissions! (/BB - bb.broadcast, /BBToggle - bb.toggle and /BBColours - bb.colours)
   * Added Colour to the [BB] tag.
-2.1:
+1.1:
   * Changed all permission nodes to lower case
   * Added BBCrossed
   * Added BBUnderlined
