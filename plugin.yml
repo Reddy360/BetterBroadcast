@@ -16,3 +16,6 @@ commands:
     bbreload:
         description: Reloads the config
         usage: /<command>
+    bbinfo:
+        description: Displays information about the plugin
+        usage: /<command>
