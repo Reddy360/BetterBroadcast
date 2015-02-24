@@ -131,7 +131,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage("Thanks for using my plugin :)");
                 //Feel free to add your fork info if you've forked this
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!"; //I really don't know why you would
+                sender.sendMessage(ChatColor.RED + "You do not have permission!"); //I really don't know why you wouldn't
             }
             return true;
         }else{
