@@ -49,7 +49,7 @@ public class PluginMain extends JavaPlugin{
             ChatColor.LIGHT_PURPLE + "d",
             ChatColor.YELLOW + "e",
             ChatColor.WHITE + "f",
-            "k - MAGIC!",
+            "k - " + ChatColor.MAGIC + "MAGIC!",
             ChatColor.BOLD + "l" + ChatColor.RESET,
             ChatColor.STRIKETHROUGH + "m" + ChatColor.RESET,
             ChatColor.UNDERLINE + "n" + ChatColor.RESET, 
@@ -86,8 +86,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage(ChatColor.RED + "You do not have permission!");
             }
             return true;
-        }
-        if(cmd.getName().equalsIgnoreCase("bbtoggle")){
+        }else if(cmd.getName().equalsIgnoreCase("bbtoggle")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle"))){
                 if(!players.contains(sender.getName())){
                     sender.sendMessage("The tag will no longer be shown");
@@ -100,8 +99,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage(ChatColor.RED + "You do not have permission!");
             }
             return true;
-        }
-        if(cmd.getName().equalsIgnoreCase("bbcolours")){
+        }else if(cmd.getName().equalsIgnoreCase("bbcolours")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.colours"))){
                 String text = "";
                 for(int i = 0; i < colours.length; i++){
@@ -112,8 +110,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage(text);
             }
             return true;
-        }
-        if(cmd.getName().equalsIgnoreCase("bbreload")){
+        }else if(cmd.getName().equalsIgnoreCase("bbreload")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.reload"))){
                 reloadConfig();
                 initConfig();
@@ -121,6 +118,16 @@ public class PluginMain extends JavaPlugin{
             }else{
                 sender.sendMessage(ChatColor.RED + "You do not have permission!";
             }
+            return true;
+        }else if(cmd.getName().equalsIgnoreCase("bbinfo")){
+            PluginDescriptionFile pdf = this.getDescription();
+            sender.sendMessage("Version: " + pdf.getVersion());
+            sender.sendMessage("Created by " + ChatColor.PURPLE + "Reddy360");
+            sender.sendMessage("Bukkit: http://dev.bukkit.org/bukkit-plugins/better-broadcast/");
+            sender.sendMessage("GitHub: https://github.com/Reddy360/BetterBroadcast Fork me");
+            sender.sendMessage("Plugin binary compiled on DD/MM/YY HH:MM"); //Not really compiled yet, will be populated for releases
+            sender.sendMessage("Thanks for using my plugin :)");
+            //Feel free to add your fork info if you've forked this
             return true;
         }else{
             return false;
