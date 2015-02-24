@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class PluginMain extends JavaPlugin{
     private String tag;
-    private List<Players> players;
+    private List<String> players;
     private FileConfiguration config;
     private String colours[];
 
@@ -30,7 +30,7 @@ public class PluginMain extends JavaPlugin{
     }
 
     public void onEnable(){
-        players = new ArrayList();
+        players = new ArrayList<String>();
         config = getConfig();
         colours = (new String[] {
             ChatColor.BLACK + "0",
