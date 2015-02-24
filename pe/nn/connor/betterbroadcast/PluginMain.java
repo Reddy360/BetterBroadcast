@@ -117,7 +117,7 @@ public class PluginMain extends JavaPlugin{
                 initConfig();
                 sender.sendMessage(ChatColor.GREEN + "Reloaded");
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!";
+                sender.sendMessage(ChatColor.RED + "You do not have permission!");
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbinfo")){
