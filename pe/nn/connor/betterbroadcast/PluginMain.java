@@ -135,6 +135,43 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage(ChatColor.RED + "You do not have permission!"); //I really don't know why you wouldn't
             }
             return true;
+        }else if(cmd.getName().equalsIgnoreCase("bbconfig"){
+            if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.config"))){
+                if(args.length == 0){
+                    sender.sendMessage("bbconfig set <key> <value>");
+                    sender.sendMessage("bbconfig get <key>");
+                    sender.sendMessage("bbconfig list");
+                    sender.sendMessage("bbconfig remove <key>");
+                    return true;
+                }else if(args.length() == 1){
+                    if(args[0].equalsIgnoreCase("list")){
+                        //List config values
+                    }else{
+                        sender.sendMessage(ChatColor.RED + "Unknown argument");
+                    }
+                    return true;
+                }else if(args.length() == 2){
+                    if(args[0].equalsIgnoreCase("get")){
+                        sender.sendMessage(args[1] + ": " + config.getString(args[1], "No config value found"));
+                    }else if(args[0].equalsIgnoreCase( "remove")){
+                        config.set(args[1], null);
+                        sender.sendMessage(args[1] + " has been removed");
+                    }
+                    return true;
+                }else if(args.length() => 3){
+                    if(args[0].equalsIgnoreCase("set")){
+                        String value = "";
+                        for(int i = 2; i > args.length(); i++){
+                            value = value + args[i] + " ";
+                        }
+                        config.set(args[1], value);
+                        sender.sendMessage(args[1] + " has been set to " + value);
+                        return true;
+                    }
+                }
+            }else{
+                sender.sendMessage(ChatColor.RED + "You do not have permission!"); //I wouldn't trust anyone who tries this
+            }
         }else{
             return false;
         }
