@@ -165,6 +165,7 @@ public class PluginMain extends JavaPlugin{
                             value = value + args[i] + " ";
                         }
                         config.set(args[1], value);
+                        config.saveConfig();
                         sender.sendMessage(args[1] + " has been set to " + value);
                         return true;
                     }
