@@ -115,7 +115,7 @@ public class PluginMain extends JavaPlugin{
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbreload")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.reload"))){
-                reloadConfig();
+                config.reload();
                 initConfig();
                 sender.sendMessage(ChatColor.GREEN + "Reloaded");
             }else{
