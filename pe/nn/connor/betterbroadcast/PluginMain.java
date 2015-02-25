@@ -3,6 +3,7 @@ package pe.nn.connor.betterbroadcast;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,6 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -115,7 +117,7 @@ public class PluginMain extends JavaPlugin{
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbreload")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.reload"))){
-                config.reload();
+                this.reloadConfig();
                 initConfig();
                 sender.sendMessage(ChatColor.GREEN + "Reloaded");
             }else{
@@ -126,7 +128,7 @@ public class PluginMain extends JavaPlugin{
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.info"))){
                 PluginDescriptionFile pdf = this.getDescription();
                 sender.sendMessage("Version: " + pdf.getVersion());
-                sender.sendMessage("Created by " + ChatColor.PURPLE + "Reddy360");
+                sender.sendMessage("Created by " + ChatColor.DARK_PURPLE + "Reddy360");
                 sender.sendMessage("Bukkit: http://dev.bukkit.org/bukkit-plugins/better-broadcast/");
                 sender.sendMessage("GitHub: https://github.com/Reddy360/BetterBroadcast Fork me");
                 sender.sendMessage("Plugin binary compiled on DD/MM/YY HH:MM"); //Not really compiled yet, will be populated for releases
@@ -136,7 +138,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!"); //I really don't know why you wouldn't
             }
             return true;
-        }else if(cmd.getName().equalsIgnoreCase("bbconfig"){
+        }else if(cmd.getName().equalsIgnoreCase("bbconfig")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.config"))){
                 if(args.length == 0){
                     sender.sendMessage("bbconfig set <key> <value>");
@@ -144,14 +146,14 @@ public class PluginMain extends JavaPlugin{
                     sender.sendMessage("bbconfig list");
                     sender.sendMessage("bbconfig remove <key>");
                     return true;
-                }else if(args.length() == 1){
+                }else if(args.length == 1){
                     if(args[0].equalsIgnoreCase("list")){
                         //List config values
                     }else{
                         sender.sendMessage(ChatColor.DARK_RED + "Unknown argument");
                     }
                     return true;
-                }else if(args.length() == 2){
+                }else if(args.length == 2){
                     if(args[0].equalsIgnoreCase("get")){
                         sender.sendMessage(args[1] + ": " + config.getString(args[1], "No config value found"));
                     }else if(args[0].equalsIgnoreCase( "remove")){
@@ -159,23 +161,26 @@ public class PluginMain extends JavaPlugin{
                         sender.sendMessage(args[1] + " has been removed");
                     }
                     return true;
-                }else if(args.length() => 3){
+                }else if(args.length >= 3){
                     if(args[0].equalsIgnoreCase("set")){
                         String value = "";
-                        for(int i = 2; i > args.length(); i++){
+                        for(int i = 2; i > args.length; i++){
                             value = value + args[i] + " ";
                         }
                         config.set(args[1], value);
-                        config.saveConfig();
+                        this.saveConfig();
                         sender.sendMessage(args[1] + " has been set to " + value);
                         return true;
                     }
+                    return false;
                 }
             }else{
                 sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!"); //I wouldn't trust anyone who tries this
+                return true;
             }
         }else{
             return false;
         }
+		return false;
     }
 }
