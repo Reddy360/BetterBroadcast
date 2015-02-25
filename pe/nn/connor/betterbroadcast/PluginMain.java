@@ -160,7 +160,7 @@ public class PluginMain extends JavaPlugin{
                 }else if(args.length == 2){
                     if(args[0].equalsIgnoreCase("get")){
                         sender.sendMessage(args[1] + ": " + config.getString(args[1], "No config value found"));
-                    }else if(args[0].equalsIgnoreCase( "remove")){
+                    }else if(args[0].equalsIgnoreCase("remove")){
                         config.set(args[1], null);
                         sender.sendMessage(args[1] + " has been removed");
                     }
@@ -168,11 +168,13 @@ public class PluginMain extends JavaPlugin{
                 }else if(args.length >= 3){
                     if(args[0].equalsIgnoreCase("set")){
                         String value = "";
-                        for(int i = 2; i > args.length; i++){
+                        for(int i = 2; i < args.length; i++){
                             value = value + args[i] + " ";
                         }
+                        value = value.trim(); //Removes trailing space
                         config.set(args[1], value);
                         this.saveConfig();
+                        initConfig(); //If they changed the tag
                         sender.sendMessage(args[1] + " has been set to " + value);
                         return true;
                     }
