@@ -7,7 +7,6 @@
   * Added config value to lock tag
   * Added /BBConfig to control the config in game
   * Added bb.config permission node for /BBConfig
-  * More to come
 2.2.1:
   * /BBReload hotfix
 2.2:
