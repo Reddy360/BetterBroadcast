@@ -54,7 +54,7 @@ public class PluginMain extends JavaPlugin{
             ChatColor.STRIKETHROUGH + "m" + ChatColor.RESET,
             ChatColor.UNDERLINE + "n" + ChatColor.RESET, 
             ChatColor.ITALIC + "o" + ChatColor.RESET,
-            ChatColor.RESET + "r - Resets any Colour and formatting Codes",
+            "r - Resets any Colour and formatting Codes",
         });
         initConfig();
         PluginManager pm = Bukkit.getPluginManager();
