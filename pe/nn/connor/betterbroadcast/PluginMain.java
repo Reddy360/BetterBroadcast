@@ -135,7 +135,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage("Created by " + ChatColor.DARK_PURPLE + "Reddy360");
                 sender.sendMessage("Bukkit: http://dev.bukkit.org/bukkit-plugins/better-broadcast/");
                 sender.sendMessage("GitHub: https://github.com/Reddy360/BetterBroadcast Fork me");
-                sender.sendMessage("Plugin binary compiled on DD/MM/YY HH:MM"); //Not really compiled yet, will be populated for releases
+                sender.sendMessage("Plugin binary compiled on 25/02/15 17:28");
                 sender.sendMessage("Thanks for using my plugin :)");
                 //Feel free to add your fork info if you've forked this
             }else{

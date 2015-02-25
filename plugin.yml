@@ -1,5 +1,5 @@
 name: BetterBroadcast
-version: 2.3 PR
+version: 2.3
 main: pe.nn.connor.betterbroadcast.PluginMain
 website: http://www.connor.nn.pe/plugins/bb
 commands:
