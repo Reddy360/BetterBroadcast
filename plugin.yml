@@ -20,5 +20,5 @@ commands:
         description: Displays information about the plugin
         usage: /<command>
     bbconfig:
-        description: Controls the config from within Minecraft, changes apply after /bbreload
+        description: Controls the config from within Minecraft
         usage: See /<command> for help
