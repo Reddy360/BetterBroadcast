@@ -1,9 +1,12 @@
 2.3 (not released yet):
   * Open sourced plugin
-  * Added /BBInfo
+  * Added /BBInfo for plugin information
   * Added bb.info permission node
   * Magic formating code shows magic
   * New package (again) pe.nn.connor.betterbroadcast
+  * Added config value to lock tag
+  * Added /BBConfig to control the config in game
+  * Added bb.config permission node for /BBConfig
   * More to come
 2.2.1:
   * /BBReload hotfix
