@@ -75,10 +75,10 @@ public class PluginMain extends JavaPlugin{
                     }
                     
                     bcast = ChatColor.translateAlternateColorCodes('&', bcast);
-                    if(!players.contains(sender.getName())){
-                        Bukkit.broadcastMessage(tag + " " + bcast);
-                    }else{
+                    if(players.contains(sender.getName()) && config.getBoolean("AllowNoTag", true)){
                         Bukkit.broadcastMessage(bcast);
+                    }else{
+                        Bukkit.broadcastMessage(tag + " " + bcast);
                     }
                 }else{
                     sender.sendMessage(ChatColor.RED + "What am I going to broadcast?");
@@ -88,7 +88,8 @@ public class PluginMain extends JavaPlugin{
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbtoggle")){
-            if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle"))){
+            if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle")) && 
+                    !config.getBoolean("AllowNoTag", true)){
                 if(!players.contains(sender.getName())){
                     sender.sendMessage("The tag will no longer be shown");
                     players.add(sender.getName());
