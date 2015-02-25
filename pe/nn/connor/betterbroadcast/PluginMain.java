@@ -63,6 +63,7 @@ public class PluginMain extends JavaPlugin{
         pm.addPermission(new Permission("bb.toggle", PermissionDefault.OP));
         pm.addPermission(new Permission("bb.reload", PermissionDefault.OP));
         pm.addPermission(new Permission("bb.info", PermissionDefault.TRUE));
+        pm.addPermission(new Permission("bb.config", PermissionDefault.OP));
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]){
