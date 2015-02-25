@@ -91,18 +91,22 @@ public class PluginMain extends JavaPlugin{
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbtoggle")){
-            if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle")) && 
-                    !config.getBoolean("AllowNoTag", true)){
-                if(!players.contains(sender.getName())){
-                    players.add(sender.getName());
-                    sender.sendMessage("The tag will no longer be shown");
+        	if(config.getBoolean("AllowNoTag", true)){
+        		if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle"))){
+                    if(!players.contains(sender.getName())){
+                        players.add(sender.getName());
+                        sender.sendMessage("The tag will no longer be shown");
+                    }else{
+                        players.remove(sender.getName());
+                        sender.sendMessage("The tag will now be shown");
+                    }
                 }else{
-                    players.remove(sender.getName());
-                    sender.sendMessage("The tag will now be shown");
+                    sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!");
                 }
-            }else{
-                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!");
-            }
+        	}else{
+        		sender.sendMessage(ChatColor.DARK_RED + "NoTag has been disabled");
+        	}
+            
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbcolours")){
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.colours"))){
