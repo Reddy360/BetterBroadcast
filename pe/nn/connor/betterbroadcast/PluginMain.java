@@ -92,11 +92,11 @@ public class PluginMain extends JavaPlugin{
             if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle")) && 
                     !config.getBoolean("AllowNoTag", true)){
                 if(!players.contains(sender.getName())){
-                    sender.sendMessage("The tag will no longer be shown");
                     players.add(sender.getName());
+                    sender.sendMessage("The tag will no longer be shown");
                 }else{
-                    sender.sendMessage("The tag will now be shown");
                     players.remove(sender.getName());
+                    sender.sendMessage("The tag will now be shown");
                 }
             }else{
                 sender.sendMessage(ChatColor.RED + "You do not have permission!");
