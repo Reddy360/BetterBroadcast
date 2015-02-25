@@ -24,7 +24,7 @@ public class PluginMain extends JavaPlugin{
             saveDefaultConfig();
         }
             
-        tag = config.getString("tag", ChatColor.RED + "B" + ChatColor.GREEN + "B&r");
+        tag = config.getString("tag", ChatColor.DARK_RED + "B" + ChatColor.GREEN + "B&r");
         tag = "[" + tag + ChatColor.RESET + "]";
         tag = ChatColor.translateAlternateColorCodes('&', tag);
     }
@@ -82,10 +82,10 @@ public class PluginMain extends JavaPlugin{
                         Bukkit.broadcastMessage(tag + " " + bcast);
                     }
                 }else{
-                    sender.sendMessage(ChatColor.RED + "What am I going to broadcast?");
+                    sender.sendMessage(ChatColor.DARK_RED + "What am I going to broadcast?");
                 }
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!");
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!");
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbtoggle")){
@@ -99,7 +99,7 @@ public class PluginMain extends JavaPlugin{
                     sender.sendMessage("The tag will now be shown");
                 }
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!");
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!");
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbcolours")){
@@ -119,7 +119,7 @@ public class PluginMain extends JavaPlugin{
                 initConfig();
                 sender.sendMessage(ChatColor.GREEN + "Reloaded");
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!");
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!");
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbinfo")){
@@ -133,7 +133,7 @@ public class PluginMain extends JavaPlugin{
                 sender.sendMessage("Thanks for using my plugin :)");
                 //Feel free to add your fork info if you've forked this
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!"); //I really don't know why you wouldn't
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!"); //I really don't know why you wouldn't
             }
             return true;
         }else if(cmd.getName().equalsIgnoreCase("bbconfig"){
@@ -148,7 +148,7 @@ public class PluginMain extends JavaPlugin{
                     if(args[0].equalsIgnoreCase("list")){
                         //List config values
                     }else{
-                        sender.sendMessage(ChatColor.RED + "Unknown argument");
+                        sender.sendMessage(ChatColor.DARK_RED + "Unknown argument");
                     }
                     return true;
                 }else if(args.length() == 2){
@@ -172,7 +172,7 @@ public class PluginMain extends JavaPlugin{
                     }
                 }
             }else{
-                sender.sendMessage(ChatColor.RED + "You do not have permission!"); //I wouldn't trust anyone who tries this
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission!"); //I wouldn't trust anyone who tries this
             }
         }else{
             return false;
