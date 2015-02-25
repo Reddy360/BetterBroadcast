@@ -26,7 +26,7 @@ public class PluginMain extends JavaPlugin{
             saveDefaultConfig();
         }
             
-        tag = config.getString("tag", ChatColor.DARK_RED + "B" + ChatColor.GREEN + "B&r");
+        tag = config.getString("tag", ChatColor.RED + "B" + ChatColor.GREEN + "B&r");
         tag = "[" + tag + ChatColor.RESET + "]";
         tag = ChatColor.translateAlternateColorCodes('&', tag);
     }
@@ -152,7 +152,9 @@ public class PluginMain extends JavaPlugin{
                     return true;
                 }else if(args.length == 1){
                     if(args[0].equalsIgnoreCase("list")){
-                        //List config values
+                        for(String key : config.getKeys(false)){
+                            sender.sendMessage(key + ": " + config.get(key));
+                        }
                     }else{
                         sender.sendMessage(ChatColor.DARK_RED + "Unknown argument");
                     }
