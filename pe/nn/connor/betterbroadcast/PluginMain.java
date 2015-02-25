@@ -18,7 +18,6 @@ public class PluginMain extends JavaPlugin{
     private List<String> players;
     private FileConfiguration config;
     private String colours[];
-    private boolean needsUpdate = false;
 
     private void initConfig(){
         if(!(new File(getDataFolder(), "config.yml")).exists()){
@@ -65,14 +64,6 @@ public class PluginMain extends JavaPlugin{
         pm.addPermission(new Permission("bb.reload", PermissionDefault.OP));
         pm.addPermission(new Permission("bb.info", PermissionDefault.TRUE));
         pm.addPermission(new Permission("bb.config", PermissionDefault.OP));
-        
-        if(config.getBoolean("AllowAutoUpdate")){
-            UpdateManager updateManager = new UpdateManager(this.getDescription());
-            needsUpdate = updateManager.checkForUpdates();
-            if(needsUpdate){
-                System.out.println("[BB] BetterBroadcast has a new update, restart server to apply");
-            }
-        }
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String args[]){
