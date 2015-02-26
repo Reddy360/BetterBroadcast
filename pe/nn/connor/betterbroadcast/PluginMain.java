@@ -176,7 +176,9 @@ public class PluginMain extends JavaPlugin{
                         value = value.trim(); //Removes trailing space
                         config.set(args[1], value);
                         this.saveConfig();
-                        initConfig(); //If they changed the tag
+                        if(args[1].equalsIgnoreCase("tag")){
+                        	initConfig(); //If they changed the tag, reload the tag
+                        }
                         sender.sendMessage(args[1] + " has been set to " + value);
                         return true;
                     }
