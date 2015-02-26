@@ -17,7 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class PluginMain extends JavaPlugin{
     private String tag;
-    private List<String> players;
+    private List<String> noTagged;
     private FileConfiguration config;
     private String colours[];
 
@@ -32,7 +32,7 @@ public class PluginMain extends JavaPlugin{
     }
 
     public void onEnable(){
-        players = new ArrayList<String>();
+        noTagged = new ArrayList<String>();
         config = getConfig();
         colours = (new String[] {
             ChatColor.BLACK + "0",
@@ -78,7 +78,7 @@ public class PluginMain extends JavaPlugin{
                     }
                     
                     bcast = ChatColor.translateAlternateColorCodes('&', bcast);
-                    if(players.contains(sender.getName()) && config.getBoolean("AllowNoTag", true)){
+                    if(noTagged.contains(sender.getName()) && config.getBoolean("AllowNoTag", true)){
                         Bukkit.broadcastMessage(bcast);
                     }else{
                         Bukkit.broadcastMessage(tag + " " + bcast);
@@ -93,11 +93,11 @@ public class PluginMain extends JavaPlugin{
         }else if(cmd.getName().equalsIgnoreCase("bbtoggle")){
         	if(config.getBoolean("AllowNoTag", true)){
         		if(sender.hasPermission(Bukkit.getPluginManager().getPermission("bb.toggle"))){
-                    if(!players.contains(sender.getName())){
-                        players.add(sender.getName());
+                    if(!noTagged.contains(sender.getName())){
+                    	noTagged.add(sender.getName());
                         sender.sendMessage("The tag will no longer be shown");
                     }else{
-                        players.remove(sender.getName());
+                    	noTagged.remove(sender.getName());
                         sender.sendMessage("The tag will now be shown");
                     }
                 }else{
